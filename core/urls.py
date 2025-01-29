@@ -17,6 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+# Add the URL configuration for the product app.
+from apps.product.api import urls as product_urls
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/v1.0/products/', product_urls),
 ]
