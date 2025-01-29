@@ -45,6 +45,7 @@ OTHER_DEPENDENCIES = [
     # Add other dependencies here
     'rest_framework',
     'corsheaders',
+    'drf_spectacular',
 ]
 
 # Local apps
@@ -55,6 +56,10 @@ LOCAL_APPS = [
 
 INSTALLED_APPS = BASE_DEPENDENCIES + OTHER_DEPENDENCIES + LOCAL_APPS
 
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
