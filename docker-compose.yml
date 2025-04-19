@@ -1,0 +1,31 @@
+
+services:
+  db:
+    image: postgres:13
+    env_file:
+      - .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - django_network
+    ports:
+      - "5432:5432"
+    
+
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:7000
+    volumes:
+      - .:/code
+    ports:
+      - "7000:7000"
+    depends_on:
+      - db
+    networks:
+      - django_network
+
+volumes:
+  postgres_data:
+
+networks:
+  django_network:
