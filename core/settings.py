@@ -46,13 +46,14 @@ OTHER_DEPENDENCIES = [
     'rest_framework',
     'corsheaders',
     'drf_spectacular',
+    'rest_framework_simplejwt',
 ]
 
 # Local apps
 LOCAL_APPS = [
     # Add your local apps here
     'apps.product',
-    'apps.auth',
+    'apps.authenticated',
 ]
 
 INSTALLED_APPS = BASE_DEPENDENCIES + OTHER_DEPENDENCIES + LOCAL_APPS
@@ -60,6 +61,9 @@ INSTALLED_APPS = BASE_DEPENDENCIES + OTHER_DEPENDENCIES + LOCAL_APPS
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
 }
 
 MIDDLEWARE = [

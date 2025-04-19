@@ -24,6 +24,7 @@ from apps.product.api import urls as product_urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1.0/products/', include(product_urls)),
+    path('api/v1.0/auth/', include('apps.authenticated.api.urls')),
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     path('api/docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
     path('api/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
