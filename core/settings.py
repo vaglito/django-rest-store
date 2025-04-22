@@ -46,7 +46,7 @@ OTHER_DEPENDENCIES = [
     # Add other dependencies here
     'rest_framework',
     'corsheaders',
-    'drf_spectacular',
+    'drf_yasg',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
 ]
@@ -150,7 +150,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-if DEBUG:
+if DEBUG == False:
     STATICFILES_DIRS = [BASE_DIR / 'static']
     MEDIA_URL = '/media/'
     MEDIA_ROOT = BASE_DIR / 'media'
