@@ -12,15 +12,13 @@ This project is a RESTful API built with Django REST Framework to manage an onli
 
 ## Requirements
 
-- Python 3.8+
-- Django 4.x
-- Django REST Framework 3.x
+- docs\dependencies.txt
 
 ## Installation
 
 1. Clone this repository:
     ```bash
-    git clone https://github.com/your-username/django-rest-store.git
+    git clone https://github.com/vaglito/django-rest-store.git
     cd django-rest-store
     ```
 
