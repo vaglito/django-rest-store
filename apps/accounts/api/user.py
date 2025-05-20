@@ -7,9 +7,31 @@ from .serializers import (
     UserSerializer,
     ChangePasswordSerializer,
     PasswordResetSerializer,
-    PasswordResetConfirmSerializer
+    PasswordResetConfirmSerializer,
+    UserRegistrationSerializer,
 )
 
+class UserRegistrationView(generics.CreateAPIView):
+    """
+    API endpoint for user registration.
+    - POST: Creates a new user account with the provided data.
+    """
+    serializer_class = UserRegistrationSerializer
+
+    def post(self, request, *args, **kwargs):
+        """
+        Handles user registration by validating the input data and creating a new user.
+        """
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.save()
+        return Response(
+            {
+                "user": UserSerializer(user).data,
+                "message": "User registered successfully."
+            },
+            status=status.HTTP_201_CREATED
+        )
 
 class UserAuth(generics.RetrieveUpdateDestroyAPIView):
     """
