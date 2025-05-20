@@ -7,8 +7,11 @@ from . import user
 
 
 urlpatterns = [
-    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('user/', user.UserAuth.as_view(), name='user_auth'),
+    path('user/profile/', user.UserAuth.as_view(), name='user_auth'),
     path('user/change-password/', user.ChangePasswordView.as_view(), name='change_password'),
+    path('password-reset/', user.PasswordResetView.as_view(), name='password-reset'),
+    path('password-reset-confirm/<int:id>/<str:token>/', user.PasswordResetConfirmView.as_view(), name='password-reset-confirm'),
+
 ]
