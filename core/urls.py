@@ -43,6 +43,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1.0/products/', include(product_urls)),
     path('api/v1.0/account/', include('apps.accounts.api.urls')),
+    path('api/v1.0/orders/', include('apps.orders.api.urls')),
     re_path(r'^swagger(?P<format>\.json|\.yaml)$',
             schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger',

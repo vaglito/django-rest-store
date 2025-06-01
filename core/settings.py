@@ -57,6 +57,7 @@ LOCAL_APPS = [
     # Add your local apps here
     'apps.product',
     'apps.accounts',
+    'apps.orders',
 ]
 
 INSTALLED_APPS = BASE_DEPENDENCIES + OTHER_DEPENDENCIES + LOCAL_APPS
