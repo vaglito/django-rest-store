@@ -31,15 +31,6 @@ class OrderSerializer(serializers.ModelSerializer):
         ]
         read_only_fields = ['user']
 
-    
-    def update(self, instance, validated_data):
-        user = self.context['request'].user
-
-        if not user.is_staff and 'status' in validated_data:
-            raise serializers.ValidationError("Only staff can update the order status.")
-
-        return super().update(instance, validated_data)
-
 
     def create(self, validated_data):
         items_data = validated_data.pop('items')

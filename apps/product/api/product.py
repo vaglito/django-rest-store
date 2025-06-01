@@ -7,7 +7,7 @@ from rest_framework.renderers import JSONRenderer
 from ..models import Product
 from .serializers import ProductSerializer
 from ..filters import ProductFilter
-from apps.lib.permissions import IsAdminOrReadOnly
+from apps.utils.permissions import IsAdminOrReadOnly
 
 class ProductListAPIView(generics.ListAPIView):
     """

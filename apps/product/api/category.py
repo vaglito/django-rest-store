@@ -4,7 +4,7 @@ from rest_framework import generics
 from rest_framework.permissions import IsAdminUser, AllowAny
 from ..models import Category
 from .serializers import CategorySerializer
-from apps.lib.permissions import IsAdminOrReadOnly
+from apps.utils.permissions import IsAdminOrReadOnly
 
 
 @extend_schema(
